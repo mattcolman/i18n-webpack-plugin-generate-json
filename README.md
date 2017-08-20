@@ -1,4 +1,4 @@
-# Translation generator for i18n-webpack-plugin
+# Translation generator for [i18n-webpack-plugin](https://github.com/webpack-contrib/i18n-webpack-plugin)
 
 ## Example
 `i18n-generate -d app`
@@ -10,8 +10,8 @@
 `node index.js`
 
 ## Options
-`-d, -directory, default [none]`
-`-f, -functionName, default [__]`
-`-o, -outputDirectory, default [translations]`
-`-l, -language, default [en]`
-`-p, -prefix, default [!!]`
+- `-d, -directory, default [none]`
+- `-f, -functionName, default [__]`
+- `-o, -outputDirectory, default [translations]`
+- `-l, -language, default [en]`
+- `-p, -prefix, default [!!]`
