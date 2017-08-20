@@ -1,0 +1,26 @@
+{
+  "name": "i18n-webpack-translation-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "i18n-webpack-translation-generator": "node ./index.js"
+  },
+  "bin": {
+    "i18n-generate": "./index.js"
+  },
+  "keywords": [
+    "i18n",
+    "webpack",
+    "translation",
+    "generator"
+  ],
+  "author": "Matt Colman",
+  "license": "ISC",
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "lodash": "^4.17.4",
+    "minimist": "^1.2.0"
+  }
+}
