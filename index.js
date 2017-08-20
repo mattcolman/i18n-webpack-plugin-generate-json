@@ -44,9 +44,8 @@ function sortObject(obj) {
 }
 
 const argv = require('minimist')(process.argv.slice(2));
-console.dir(argv);
-const functionName = argv.f || argv.functionName || '__';
 const dir = argv.d || argv.directory;
+const functionName = argv.f || argv.functionName || '__';
 const outputDirectory = argv.o || argv.output || 'translations';
 const language = argv.l || argv.language || 'en';
 const prefix = argv.p || argv.prefix || '!!';
