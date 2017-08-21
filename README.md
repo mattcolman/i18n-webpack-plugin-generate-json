@@ -16,9 +16,6 @@ It's actually not tied to i18n-webpack-plugin at all. In fact I use it with my o
   <span>{__('this script will save me *NUMBER* hours').replace('*NUMBER*', 73)}</span> // variable replacement
 ```
 
-## Example React + Webpack project
-https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
-
 ## Install
 `npm i i18n-webpack-plugin-generate-json --save-dev`
 
@@ -33,6 +30,9 @@ https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 - `-l, -languages, default ['en']`
 - `-t, -transformise, default [false] : Transformises using lower snake case whilst preserving the * character to be used for variable substitution. e.g. the key for __('i have *number* ducks') is 'i_have_*number*_ducks'`
 - `-p, -prefix, default [!!] : The prefix is so you can see visually what translations have been mapped in your application. It also allows this script to regenerate your un-translated sentences.`
+
+## Example React + Webpack project
+https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 
 ## Gotchas
 1. The script searches for the functionName and expects the contents to start with a single or double quote. So if you have something like 
