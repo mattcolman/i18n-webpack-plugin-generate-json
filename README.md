@@ -35,4 +35,7 @@ https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 - `-p, -prefix, default [!!] : The prefix is so you can see visually what translations have been mapped in your application. It also allows this script to regenerate your un-translated sentences.`
 
 ## Gotchas
-1. The script searches for the functionName and expects the contents to start with a single or double quote. So if you have something like `<span>{__(`twelve ${animal}s`)}</span>` or `<span>{__(isHello ? 'hello' : 'hi')}</span>`, it won't work! I don't think you need to do either of these things. The first example is a variable replacement, so it will need to use the method show in the example code above. The second example can be re-written to `<span>{isHello ? __('hello') : __('hi')}</span>`
+1. The script searches for the functionName and expects the contents to start with a single or double quote. So if you have something like 
+```<span>{__(`twelve ${animal}s`)}</span>``` 
+or 
+```<span>{__(isHello ? 'hello' : 'hi')}</span>```, it won't work! I don't think you need to do either of these things. The first example is a variable replacement, so it will need to use the method show in the example code above. The second example can be re-written to ```<span>{isHello ? __('hello') : __('hi')}</span>```
