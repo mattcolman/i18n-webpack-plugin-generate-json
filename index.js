@@ -48,7 +48,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const dir = argv.d || argv.directory;
 const functionName = argv.f || argv.functionName || '__';
 const outputDirectory = argv.o || argv.output || 'translations';
-const language = argv.l || argv.language || 'en';
+const languages = argv.l || argv.languages || 'en';
 const prefix = argv.p || argv.prefix || '!!';
 const willTransformise = argv.t || argv.transformise || false;
 
@@ -74,22 +74,25 @@ glob(`${dir}/**/*.js`, {}, (er, files) => {
       return null;
     }),
   )(files);
-  const cnText = getLocaleConfig(outputDirectory, language);
-  const foundMap = _.keyBy(str => {
-    return willTransformise ? transformise(str) : str;
-  })(value);
-  const newTranslations = _.pickBy((v, key) => {
-    const found = cnText[key];
-    return !found || found.search(prefix) !== -1;
-  })(foundMap);
-  console.log('new translations', newTranslations);
-  let newObject = Object.assign({},
-    cnText,
-    _.mapValues(str => `${prefix}${str}`)(newTranslations),
-  );
-  newObject = sortObject(newObject);
-  fs.writeFileSync(
-    `${outputDirectory}/${language}.json`,
-    JSON.stringify(newObject, null, 2), 'utf8',
-  );
+  const languagesArray = languages.split(' ');
+  languagesArray.forEach((language) => {
+    const localeText = getLocaleConfig(outputDirectory, language);
+    const foundMap = _.keyBy(str => {
+      return willTransformise ? transformise(str) : str;
+    })(value);
+    const newTranslations = _.pickBy((v, key) => {
+      const found = localeText[key];
+      return !found || found.search(prefix) !== -1;
+    })(foundMap);
+    console.log(`${language}: new translations found`, newTranslations);
+    let newObject = Object.assign({},
+      localeText,
+      _.mapValues(str => `${prefix}${str}`)(newTranslations),
+    );
+    newObject = sortObject(newObject);
+    fs.writeFileSync(
+      `${outputDirectory}/${language}.json`,
+      JSON.stringify(newObject, null, 2), 'utf8',
+    );
+  });
 });
