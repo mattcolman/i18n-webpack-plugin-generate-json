@@ -14,6 +14,7 @@ const path = require('path');
 
 // use a custom transformise to keep *STARS* for variable subs.
 // TODO - add an option to specify a different key
+//      - add option to snake-case transformise or not
 // NOTE = this will obviously cause issues with markdown text, but I imagine you would create a custom key for
 // markdown anyway.
 function transformise(string) {
@@ -49,6 +50,7 @@ const functionName = argv.f || argv.functionName || '__';
 const outputDirectory = argv.o || argv.output || 'translations';
 const language = argv.l || argv.language || 'en';
 const prefix = argv.p || argv.prefix || '!!';
+const willTransformise = argv.t || argv.transformise || false;
 
 if (!dir) console.error('no directory supplied. use -d');
 
@@ -73,7 +75,9 @@ glob(`${dir}/**/*.js`, {}, (er, files) => {
     }),
   )(files);
   const cnText = getLocaleConfig(outputDirectory, language);
-  const foundMap = _.keyBy(str => transformise(str))(value);
+  const foundMap = _.keyBy(str => {
+    return willTransformise ? transformise(str) : str;
+  })(value);
   const newTranslations = _.pickBy((v, key) => {
     const found = cnText[key];
     return !found || found.search(prefix) !== -1;

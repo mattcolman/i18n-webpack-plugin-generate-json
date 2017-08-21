@@ -1,7 +1,7 @@
-# Translation generator for [i18n-webpack-plugin](https://github.com/webpack-contrib/i18n-webpack-plugin)
+# Generate translation json files for [i18n-webpack-plugin](https://github.com/webpack-contrib/i18n-webpack-plugin)
 
 ## Example
-`i18n-generate -d app`
+`i18n-generate -d app -l de`
 
 ## Install
 `npm i`

@@ -1,7 +1,7 @@
 {
-  "name": "i18n-webpack-plugin-generator",
+  "name": "i18n-webpack-plugin-generate-json",
   "version": "1.0.0",
-  "description": "Translation file generator for i18n-webpack-plugin",
+  "description": "Generate translation json files for i18n-webpack-plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,8 @@
     "i18n",
     "webpack",
     "translation",
-    "generator"
+    "generate",
+    "json"
   ],
   "author": "matt colman <matt@mattcolman.com>",
   "license": "MIT",
