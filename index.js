@@ -84,7 +84,7 @@ glob(`${dir}/**/*.js`, {}, (er, files) => {
       const found = localeText[key];
       return !found || found.search(prefix) !== -1;
     })(foundMap);
-    console.log(`${language}: new translations found`, newTranslations);
+    console.log(`\n\n${language}: new translations found\n`, newTranslations);
     let newObject = Object.assign({},
       localeText,
       _.mapValues(str => `${prefix}${str}`)(newTranslations),
