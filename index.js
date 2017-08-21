@@ -4,17 +4,17 @@ const _ = require('lodash/fp');
 const glob = require('glob');
 const path = require('path');
 
-// README
+// ** README **
 // Searches through a directory to find all strings wrapped in __('') (or whatever function name you choose)
 // it then compares these to the existing keys in [language].json file and adds only new keys
 // with the english words to translate.
 // English words are prefixed with !! (or whatever you choose) so we can see visually in our running application
 // what has been mapped whilst awaiting translations.
 // Prefixing also makes it easier to regex those mapped translations in case you need to for whatever reason.
+// TODO - add option to remove mapped, un-translated text before regenerating them
 
 // use a custom transformise to keep *STARS* for variable subs.
 // TODO - add an option to specify a different key
-//      - add option to snake-case transformise or not
 // NOTE = this will obviously cause issues with markdown text, but I imagine you would create a custom key for
 // markdown anyway.
 function transformise(string) {
