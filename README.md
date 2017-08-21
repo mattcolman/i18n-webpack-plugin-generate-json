@@ -20,3 +20,6 @@
 - `-o, -outputDirectory, default [translations]`
 - `-l, -languages, default ['en']`
 - `-p, -prefix, default [!!]` The prefix is so you can see visually what translations have been mapped in your application. It also allows this plugin to regenerate your un-translated sentences.
+
+## Example React + Webpack project
+https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
