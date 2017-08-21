@@ -3,7 +3,7 @@
 ## Example package.json
 ```
   scripts: {
-    "i18n-generate": "i18n-generate -d app -l 'de cn'"
+    "i18n-generate": "i18n-generate -d src -l 'de cn'"
   }
 ```
 
