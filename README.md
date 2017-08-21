@@ -1,7 +1,7 @@
 # Generate translation json files for [i18n-webpack-plugin](https://github.com/webpack-contrib/i18n-webpack-plugin)
 
 [i18n-webpack-plugin](https://github.com/webpack-contrib/i18n-webpack-plugin) is great, but making translation files can be a big manual job! This script will search your app and generate translation json files for you.
-This script is not tied to i18n-webpack-plugin at all. In fact I use it with my own translation function that is called at runtime. For that reason I provide the option to make your keys transformed to snake-case. This is my personal preference.
+It's actually not tied to i18n-webpack-plugin at all. In fact I use it with my own translation function that is called at runtime. For that reason I provide the option to make your keys transformed to snake-case. This is my personal preference.
 
 ## Example package.json
 ```
