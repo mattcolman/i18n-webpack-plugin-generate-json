@@ -1,13 +1,13 @@
 {
   "name": "i18n-webpack-plugin-generate-json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate translation json files for i18n-webpack-plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "i18n-generate": "./index.js"
+    "i18n-generate": "i18n-generate.js"
   },
   "keywords": [
     "i18n",
