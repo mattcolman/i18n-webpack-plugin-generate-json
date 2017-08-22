@@ -3,17 +3,27 @@
 [i18n-webpack-plugin](https://github.com/webpack-contrib/i18n-webpack-plugin) is great, but making translation files can be a big manual job! This script will search your app and generate translation json files for you.
 It's actually not tied to i18n-webpack-plugin at all. In fact I use it with my own translation function that is called at runtime. For that reason I provide the option to make your keys transformed to snake-case. This is my personal preference.
 
-## Example package.json
+## Basic Example
+
+### package.json
 ```
   scripts: {
     "i18n-generate": "i18n-generate -d src -l 'de cn'"
   }
 ```
 
-## Example app code
+### App code
 ```
   <span>{__('oh hi, I need to be translated')}</span>
   <span>{__('this script will save me *NUMBER* hours').replace('*NUMBER*', 73)}</span> // variable replacement
+```
+
+### Output translation json - send it to the translator. Regenerating it won't delete existing translations.
+```
+  {
+    "oh hi, I need to be translated": "!!oh hi, I need to be translated",
+    "this script will save me *NUMBER* hours": "!!this script will save me *NUMBER* hours"
+  }  
 ```
 
 ## Install
@@ -31,9 +41,10 @@ It's actually not tied to i18n-webpack-plugin at all. In fact I use it with my o
 - `-t, -transformise, default [false] : Transformises using lower snake case whilst preserving the * character to be used for variable substitution. e.g. the key for __('i have *number* ducks') is 'i_have_*number*_ducks'`
 - `-p, -prefix, default [!!] : The prefix is so you can see visually what translations have been mapped in your application. It also allows this script to regenerate your un-translated sentences.`
 
-## Example using lower-snake-case keys
+## Advanced Example using lower-snake-case keys
 ```
   import { transformise } from 'i18n-webpack-plugin-generate-json';
+
   // custom translate function
   export function translate(translations, key) {
     const translation = translations[transformise(key)];
