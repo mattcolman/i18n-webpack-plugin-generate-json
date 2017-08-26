@@ -45,43 +45,43 @@ if (!dir) console.error('no directory supplied. use -d');
 
 // TODO - test if the outputDirectory exists
 
-glob(`${dir}/**/*.js`, {}, (er, files) => {
+glob(`${dir}/**/*.js`, {}, function(er, files) {
   const value = _.compose(
     _.compact,
     _.uniq,
     _.flatten,
-    _.map((file) => {
+    _.map(function(file) {
       const text = fs.readFileSync(file, 'utf8');
       const findTranslations = new RegExp(`(\\W${functionName}\\()(\'|\")(.*?)(\\))`, "g"); // finds all text wrapped in __('') or whatever you set it to
       const result = text.match(findTranslations);
       if (result) {
         // strip away '__(' and ')'
-        return result.map(r => (
-          r.slice(r.indexOf(functionName) + functionName.length + 2).slice(0, -2)
-        ));
+        return result.map(function(r) {
+          return r.slice(r.indexOf(functionName) + functionName.length + 2).slice(0, -2);
+        });
       }
       return null;
-    }),
+    })
   )(files);
   const languagesArray = languages.split(' ');
-  languagesArray.forEach((language) => {
+  languagesArray.forEach(function(language) {
     const localeText = getLocaleConfig(outputDirectory, language);
-    const foundMap = _.keyBy(str => {
+    const foundMap = _.keyBy(function(str) {
       return willTransformise ? transformise(str) : str;
     })(value);
-    const newTranslations = _.pickBy((v, key) => {
+    const newTranslations = _.pickBy(function(v, key) {
       const found = localeText[key];
       return !found || found.search(prefix) !== -1;
     })(foundMap);
     console.log(`\n\n${language}: new translations found\n`, newTranslations);
     let newObject = Object.assign({},
       localeText,
-      _.mapValues(str => `${prefix}${str}`)(newTranslations),
+      _.mapValues(function(str) { return `${prefix}${str}` })(newTranslations)
     );
     newObject = sortObject(newObject);
     fs.writeFileSync(
       `${outputDirectory}/${language}.json`,
-      JSON.stringify(newObject, null, 2), 'utf8',
+      JSON.stringify(newObject, null, 2), 'utf8'
     );
   });
 });
