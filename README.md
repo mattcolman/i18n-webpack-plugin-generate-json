@@ -61,4 +61,3 @@ https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 ```<span>{__(`twelve ${animal}s`)}</span>```
 or
 ```<span>{__(isHello ? 'hello' : 'hi')}</span>```, it won't work! I don't think you need to do either of these things. The first example is a variable replacement, so it will need to use the method shown in the example code above. The second example can be re-written as ```<span>{isHello ? __('hello') : __('hi')}</span>```
-2. Requires Node v7+
