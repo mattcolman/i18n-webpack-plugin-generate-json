@@ -57,7 +57,14 @@ It's actually not tied to i18n-webpack-plugin at all. In fact I use it with my o
 https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 
 ## Gotchas
-1. The script searches for the functionName and expects the contents to start with a single or double quote. So if you have something like
+1. The script searches for the functionName and expects the contents to start with a single or double quote. This is because translations are static, so the contents of your functionName must also be static.
+
+#### This won't work
 ```<span>{__(`twelve ${animal}s`)}</span>```
-or
-```<span>{__(isHello ? 'hello' : 'hi')}</span>```, it won't work! I don't think you need to do either of these things. The first example is a variable replacement, so it will need to use the method shown in the example code above. The second example can be re-written as ```<span>{isHello ? __('hello') : __('hi')}</span>```
+#### Instead
+```<span>{__('twelve *ANIMAL*s').replace('*ANIMAL*', animal)}</span>```
+
+#### This won't work
+```<span>{__(isHello ? 'hello' : 'hi')}</span>```
+#### Instead
+```<span>{isHello ? __('hello') : __('hi')}</span>```
