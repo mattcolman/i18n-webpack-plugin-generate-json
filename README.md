@@ -70,4 +70,4 @@ https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 ```<span>{isHello ? __('hello') : __('hi')}</span>```
 
 ## Maintainers
-Built by [Matt Colman](https://twitter.com/matt_colman)
+[Matt Colman](https://twitter.com/matt_colman)
