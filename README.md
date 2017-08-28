@@ -68,3 +68,6 @@ https://github.com/mattcolman/i18n-webpack-plugin-generate-json-example
 ```<span>{__(isHello ? 'hello' : 'hi')}</span>```
 #### Instead
 ```<span>{isHello ? __('hello') : __('hi')}</span>```
+
+## Maintainers
+Built by [Matt Colman](https://twitter.com/matt_colman)
