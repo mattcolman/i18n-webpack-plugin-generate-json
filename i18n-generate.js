@@ -45,7 +45,7 @@ if (!dir) console.error('no directory supplied. use -d');
 
 // TODO - test if the outputDirectory exists
 
-glob(`${dir}/**/*.js`, {}, function(er, files) {
+glob(`${dir}/**/*.+(js|html)`, {}, (er, files) => {
   const value = _.compose(
     _.compact,
     _.uniq,
